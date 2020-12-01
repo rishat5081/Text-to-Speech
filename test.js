@@ -8,7 +8,10 @@ const form = document.querySelector('form'),
     rate = document.querySelector('#rate'),
     pitch_value = document.querySelector('#pitch-value'),
     pitch = document.querySelector('#pitch'),
-    voicesSelect = document.querySelector('#voicesSelect')
+    voicesSelect = document.querySelector('#voicesSelect'),
+    start = document.querySelector('#startbtn'),
+    pause = document.querySelector('#pausebtn'),
+    stopsss = document.querySelector('#stopbtn')
 
 
 let voices = []
@@ -30,6 +33,8 @@ const getVoices = () => {
 getVoices();
 if (sythesisVar.onvoiceschanged !== undefined)
     sythesisVar.onvoiceschanged = getVoices
+
+
 
 
 const SpeakkkkIT = () => {
@@ -71,7 +76,19 @@ const SpeakkkkIT = () => {
 
 
 
-form.addEventListener('submit',((e)=>{
+form.addEventListener('submit', ((e) => {
     e.preventDefault()
     SpeakkkkIT()
 }))
+
+//on change of the rate and pitch
+
+rate.addEventListener('change', e => rate_value.textContent = rate.value)
+
+pitch.addEventListener('change', e => pitch_value.textContent = pitch.value)
+
+
+
+start.addEventListener('click', e => sythesisVar.resume())
+pause.addEventListener('click', e => sythesisVar.pause())
+stopsss.addEventListener('click', e => sythesisVar.cancel())
