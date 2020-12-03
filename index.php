@@ -1,1 +1,1 @@
-<?php header('Location: /staticTxtToSpeech.html');?>
+<?php header('Location: /home.html');?>
